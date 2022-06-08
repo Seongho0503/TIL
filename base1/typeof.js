@@ -10,7 +10,7 @@ console.log(typeof 3); // number
 console.log(typeof name); // string
 console.log(typeof true); // boolean
 console.log(typeof "xxx"); // string
-console.log(typeof null); // Object 객체형
+console.log(typeof null); // Object 객체형 (자바스크립트 초기번전의 오류)
 console.log(typeof undefined); // undefined
 
 /*

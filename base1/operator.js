@@ -7,7 +7,7 @@ console.log(3 * 2); //  * 곱하기
 console.log(6 / 3); //  / 나누기
 console.log(6 % 4); // % 나머지
 
-// 0으로 나누면
+// 숫자를 0으로 나누면
 const x = 1 / 0; // ????
 console.log(x); // Infinity (무한대)
 

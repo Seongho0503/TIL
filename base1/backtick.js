@@ -1,6 +1,12 @@
 const name = "Mike"; // 문자형 String
 const age = 30;
 
+//문자열은 ""(겹따옴표) ''(홑따옴표) 안 붙여주면 에러가 남
+// class = "수업"
+// class는 예약어 (Reverved words)
+
+// 문자열 표현방법 3가지
+// " "  ' '  ``(백틱)
 const name1 = "Mike";
 const name2 = "Mike";
 // 큰 따옴표와 작은 땀옴표는 큰 차이없다
@@ -8,7 +14,7 @@ const name3 = `Mike`;
 
 // 작은 따옴표 쓰고 싶은면
 const message = "I'm a boy"; // 큰 따옴표로 감싸기
-const message2 = "I`m a boy"; // 역 슬래쉬 앞에 넣어주면 특수문자로 인식
+const message2 = "I'm a boy"; // 'I\'m a boy'; 역 슬래쉬 앞에 넣어주면 특수문자로 인식(이거 VSCODE에서는 인식이 안되네 )
 
 //정규식
 const message3 = `My name is ${name}`;
