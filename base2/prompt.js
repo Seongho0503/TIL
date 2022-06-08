@@ -26,6 +26,7 @@ confirm("구독을 취소 하시겠습니까?");
 const name = prompt("이름을 입력하세요");
 alert(`안녕하세요, ${name}님. 환영합니다.`);
 console.log(name);
+console.log(typeof name);
 
 // 예제3) 만약 prompt 취소를 누르면 null 값이 변수에 들어감
 // 그래서 나온 예제가 3임 (디폴트 값을 설정)

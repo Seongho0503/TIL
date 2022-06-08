@@ -125,18 +125,46 @@ if (age > 19) {
 
 // OR
 // 이름이 TOM이거나 , 성인이면 통과
-const name = "Mike";
-const age2 = 10;
+// const name = "Mike";
+// const age2 = 10;
 
-if (age2 > 19 || name === "Tom") {
-  console.log("통과");
-} else {
-  console.log("돌아가");
-}
+// if (age2 > 19 || name === "Tom") {
+//   console.log("통과");
+// } else {
+//   console.log("돌아가");
+// }
+
+// // 나이를 입력받아 성인 아니면 돌아가라고...
+// const isAdult = prompt("나이를 입력하세요");
+// if (isAdult > 19) {
+//   console.log("통과");
+// } else {
+//   console.log("돌아가");
+// }
 
 // 나이를 입력받아 성인 아니면 돌아가라고...
-const isAdult = prompt("나이를 입력하세요");
-if (isAdult > 19) {
+// const age3 = prompt("나이를 입력하세요");
+// const isAdult = age3 > 19;
+// if (isAdult) {
+//   //이건 성인이면  !isAdult 성인이 아니면
+//   console.log("통과");
+// } else {
+//   console.log("돌아가");
+// }
+
+//비교연산자도 우선순위가 있다
+// AND가 OR보다 높다. (매우중요)
+// 남자이고, 이름이 Mike 이거나 성인이면 통과
+
+const gender = "F";
+const name = "Jane";
+const isAdult2 = true;
+
+// if ((gender === "M" && name === "Mike") || isAdult2)
+// if (gender === "M" && name === "Mike" || isAdult2)
+// 위 두개의 코드는 같다 (AND가 OR보다 우선순위가 높기 때문에)
+//이렇게하면 통과가 뜬다.
+if (gender === "M" && (name === "Mike" || isAdult2)) {
   console.log("통과");
 } else {
   console.log("돌아가");
