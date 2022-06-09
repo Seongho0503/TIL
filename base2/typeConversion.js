@@ -87,7 +87,7 @@ console.log(
 
 //Bollean()
 // false가 되는 경우 5가지
-// - 숫자 0 , 빈 문자열 "" , null , undefined, NaN
+// - 숫자 0 , 빈 문자열 "" , null , undefined, NaN (true 제외 값  = if문에서 false값)
 // 이 외에는 모두 ture 반환
 
 console.log(
