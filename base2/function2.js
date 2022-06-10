@@ -11,6 +11,7 @@ let sayHello = function(){
     console.log('Hello')
 }
 */
+
 let sayHello = function () {
   console.log("Hello");
 };
@@ -61,4 +62,59 @@ let num = 1;
 함수 표현식 : 코드에 도달하면 생성
 함수 표현식으로 생성되고 나서 함수 사용가능
 
+그래서 뭐가 더 좋음?
+함수 선언문 vs 함수 표현식
+
+함수 선언문을 선호함
+
 */
+
+//화살표 함수(arow function) : 지금까지 배웠던 함수를 보다 간결하게 작성가능
+// ES6에서 새로 도입되었다. => 활발히 사용되기 때문에 필수적으로 알고 있어야함
+
+// 함수표현식
+let add = function (num1, num2) {
+  return num1 + num2;
+};
+
+// 함수표현식 => 화살표 함수 (로 바꾸기)
+let add2 = (num1, num2) => {
+  return num1 + num2;
+};
+
+// function 없어지고 매개변수 괄호 뒤에 화살표가 생김
+
+let add3 = (num1, num2) => num1 + num2;
+
+// let add3 = (num1, num2) => (
+//     num1 + num2; //에러난 부분 : ;
+//     );
+
+// return 문도 없애고(중괄호 , ;도 같이 없애야함) 중괄호를 소괄호로 바꿈 => vscode확장판에 따라 소괄호도 자동으로 사라진다
+
+let add4 = (num1, num2) => num1 + num2;
+
+//return 문이 한줄이라면 괄호 생략도 가능
+
+// 인수가 하나라면 괄호도 생략가능
+let sayHello2 = (name) => `Hello, ${name}`; // 전
+
+let sayHello3 = (name) => `Hello, ${name}`; // 후
+
+// 만약 인수가 없는 함수라면 이때는 매개변수 괄호 생략 불가능!!!!
+
+let showError = () => {
+  alert("error!");
+};
+
+// return문에 여러줄의 코드가 있다면 실행문에 일반괄호 사용불가 (중괄호 써야함)
+
+let add5 = function (num1, num2) {
+  const result = num1 + num2;
+  return result;
+};
+
+let add6 = (num1, num2) => {
+  const result = num1 + num2;
+  return result;
+};
