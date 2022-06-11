@@ -106,3 +106,15 @@ for (let key in superman) {
   console.log(key);
   console.log(superman[key]);
 }
+
+const Mike = {
+  name: "Mike",
+  age: 30,
+};
+
+for (x in Mike) {
+  console.log("-------");
+  console.log(x); // 키(key)
+  console.log(Mike[x]); // Mike["name"] ,  Mike["age"] // 값(value)
+}
+// x대신 아무거나 써도 됨, 보통 key를 많이씀
