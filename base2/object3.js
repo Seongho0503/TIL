@@ -55,3 +55,5 @@ let girl = {
 boy.sayHello();
 girl.sayHello();
 // sayHello의 객체는 점 앞에 있는 객체 boy , girl
+
+// 메서드 에서의 차이
