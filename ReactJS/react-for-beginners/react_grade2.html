@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const root = document.getElementById("root");
+    const span = React.createElement("span", null, "Hello");
+    const btn = React.createElement("button", null, "Click me");
+    //root안에 btn을 render
+    ReactDOM.render(container, root);
+    // span과 btn 둘다 render 하고 싶다면 => div
+    const container = React.createElement("div", null, [span, btn]);
+    //span을 먼저, button을 그다음으로 render하고 싶다 => array
+    // div를 render하는데, 그 안엔 span과 button이 있다.
+  </script>
+</html>
