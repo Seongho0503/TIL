@@ -28,3 +28,7 @@ https://babeljs.io/
 - import 
 https://unpkg.com/@babel/standalone/babel.min.js
 - <script src="https://unpkg.com/@babel/standalone/babel.min.js"></scrpt>
+- <script type="text/babel"> 로 감쌈
+
+![image](https://user-images.githubusercontent.com/86208370/175935761-62b3768a-43c3-43b5-9b26-281130ebfafd.png)
+- Babel이 브라우저가 읽을 수 있는 코드로 바꿔서 head에  담음 (개발자도구 -element)
