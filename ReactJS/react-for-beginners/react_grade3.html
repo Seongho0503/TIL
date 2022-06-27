@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    // 버튼을 만들고 클릭 event 감지
+    const root = document.getElementById("root");
+    const h3 = React.createElement(
+      "h3", // HTML 태그 선택
+      {
+        id: "title",
+        //event 등록
+        // 또 다른 event listener(원래 mouseenter)
+        // on + 낙타표기법
+        // React JS에서는 on을 붙여야 우리가 event listner를 생성한다고 알려줄 수 있음
+        // event 등록한것은 개발자도구 element에서 보이지 않음
+
+        onMouseEnter: () => console.log("mouse enter"),
+      },
+      "Hello"
+    );
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("im clicked"),
+        // button이 클릭 될 때마다 호출될 function을 여기다 작성
+        style: {
+          backgroundColor: "tomato",
+        },
+      },
+      "Click me"
+    );
+    // const(constant)의 이름은 HTML의 태그 이름과 반드시 일치할 필요가 없어
+    // 두번째 argument에는 prperty를  줌 [id, class name, style, event listener(onClick) 도 줄 수 있다
+    // 세번째 argument에는 content를 넣음
+    
+    //const container = React.createElement("div", null, [h3, btn]);
+    ReactDOM.render(container, root);
+  </script>
+</html>

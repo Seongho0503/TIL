@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    const Title = (
+      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+        Hello
+      </h3>
+    );
+    //1. HTML 태그를 열고 닫음
+    //2. 그 사이에 content(내용) 담음
+    //3. onMouseEnter는 마치 태그가 가진 하나의 속성인 것처럼 추가
+
+    // const h3 = React.createElement(
+    //   "h3",
+    //   {
+    //     id: "title",
+    //     onMouseEnter: () => console.log("mouse enter"),
+    //   },
+    //   "Hello"
+    // );
+
+    const Button = (
+      <button
+        style={{ backgroundColor: "tomato" }}
+        onClick={() => console.log("im clicked")}
+      >
+        Click me
+      </button>
+    );
+
+    // const btn = React.createElement(
+    //   "button",
+    //   {
+    //     onClick: () => console.log("im clicked"),
+    //     style: {
+    //       backgroundColor: "tomato",
+    //     },
+    //   },
+    //   "Click me"
+    // );
+
+    //container를 앞에 대문자로 적어야 한다.
+    const Container = <div>Title Button</div>;
+    //const container = React.createElement("div", null, [Title, Button]);
+    ReactDOM.render(Container, root);
+    //여기도 container 대문자로 적어야함
+  </script>
+</html>
