@@ -15,3 +15,13 @@
 4. props에서 객체로 들어가는 경우 {} 중괄호 넣어야함
  - event Listener는 {} 중괄호 1개
  - style은 {{}} 중괄호 2개
+
+# 3. Babel 
+![image](https://user-images.githubusercontent.com/86208370/175921499-609ac558-992c-4d97-a051-d7ac8860cf93.png)
+
+- 코드 인식을 못해서 변환해줘야함 : Babel
+- Babel : 코드를 변환해줌
+- JSX로 적은 코드를 브라우저가 이해할 수 있는 형태로 바꿔 줌
+- 브라우저는 JSX를 모르니깐
+- 
+https://babeljs.io/
