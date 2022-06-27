@@ -25,3 +25,6 @@
 - 브라우저는 JSX를 모르니깐
 - Babel 사이트 
 https://babeljs.io/
+- import 
+https://unpkg.com/@babel/standalone/babel.min.js
+- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></scrpt>
