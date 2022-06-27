@@ -9,5 +9,6 @@
 - props : property
 - 일반적인 HTML tag의 property로 부터 무엇이든지 바꿀 수 있다
 - id, class, style[색], placeholder, <h3> event listener!! <h3> 등등
+- props 안에서 event listener를 등록 할 수 있음 [powerful]
 - 없으면 null 로 둔다
 # 3. 세 번째 arument : content
