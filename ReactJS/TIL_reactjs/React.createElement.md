@@ -8,6 +8,6 @@
 # 2. 두 번째 argument : props가 포함된 object
 - props : property
 - 일반적인 HTML tag의 property로 부터 무엇이든지 바꿀 수 있다
-- id, class, style[색], placeholder, <b> event listener!! <b> 등등
+- id, class, style[색], placeholder, <h3> event listener!! <h3> 등등
 - 없으면 null 로 둔다
 # 3. 세 번째 arument : content
