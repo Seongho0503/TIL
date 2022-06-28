@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    //함수를 만들어서 return
+    function Title() {
+      return (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          Hello
+        </h3>
+      );
+    }
+    // arrow function
+    const Button = () => (
+      <button
+        style={{ backgroundColor: "tomato" }}
+        onClick={() => console.log("im clicked")}
+      >
+        Click me
+      </button>
+    );
+    // container 대문자로 시작
+    // Title과 Button이 함수여도 Title() 이렇게 쓰지 않는다. -> JSX 규칙
+    // Title을 렌더링 하고 싶으면 html 태그랑 비슷한 문법으로 <Title />
+    // 밑에 Container는 여러 컴포넌트들이 합쳐진 구성
+    const Container = () => (
+      // div 태그를 렌더링하고 있는 컴포넌트가 하나있는데,
+      // Title과 Button관련된 코드를 포함시키고 있음
+      // <Title />이라고 적는건 위해 Title 함수의 <h3 >~~ </h3>을 여기에 복사붙어넣기 한거랑 똑같다. (실제 복붙하면 결과 같음)
+      // 단지 코드를 단정하게 보이기 위해 대신 사용
+      // 컴포넌트의 첫 글자는 반드시 대문자!! (Title, Button)
+      // 만약 소문자면 React랑 JSX는 이게 HTML button 태그라고 생각한다.
+      // JSX는 어플리케이션을 여러가지 작은 요소로 나누어 관리할 수 있게 해준다.
+      // 여러 요소로 잘게 쪼개서 만들어서 합쳐 주기함 하면 된다.
+      // EX) Title과 Button을 보기 쉽게 코드를 분리한 뒤에 함께 렌더링 함
+      <div>
+        <button>Hello</button>
+        <Title /> <Button />
+        <Button />
+        <Button />
+        <Button />
+        <Button />
+      </div>
+    );
+    //const container = React.createElement("div", null, [Title, Button]);
+    ReactDOM.render(<Container />, root);
+    //ReactDOM.render(Container, root);
+    // container 대문자로 시작
+    // !! 매우중요!!
+    // : 내가 만든 conponent를 다른 곳에서 사용할 때는 항상 대문자로 시작해야 함
+  </script>
+</html>
