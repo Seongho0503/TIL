@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    // 1) 이런 counter 변수를 JSX에 전달하는 방법
+    let counter = 0;
+    // 3) 함수 생성
+
+    function countUp() {
+      counter = counter + 1;
+      render();
+      //ReactDOM.render(<Container />, root);
+      // 함수를 누를 때마다 리렌더링 -> count 업데이트 성공
+      // render 함수를 하나 만들어주자
+    }
+    function render() {
+      ReactDOM.render(<Container />, root);
+    }
+    const Container = () => (
+      // 2) 밑에 보면 {counter} 중괄호로 변수 연결 완료
+      // 4) React.js에서 이벤트리스터를 추가하는 방법 -> button으로 가서, onClick prop을 만들자
+      <div>
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={countUp}>Click me</button>
+      </div>
+    );
+
+    render();
+    //ReactDOM.render(<Container />, root);
+    // 먼저 어플리케이션이 시작될 때 Container를 렌더링 함
+    // Container를 한 번 렌더링 해줌 -> Html UI가 업데이트가 안 됨 (버튼을 클릭해도 counter가 안 올라감)
+    // Container를 리렌더링 해줘야 함 => 새로운 버전의 Container를 말이야
+    // 내가 countUp 함수를 호출할 때마다 ReactDOM.render(<Container />, root); 을 다시 호출하고 싶은 거야
+    // 여기도 render 함수로 바꿔주자
+  </script>
+</html>
+<!-- 
+<정리>
+1. 어플리케이션이 시작하면 counter 초기값은 0이다.
+   어플ㄹ이 막 시작됐을 때의 Countainer는 Total click을 가지고 있고 counter와 연결돼있다.
+   버튼에 이벤트리스너를 등록해주면 CountUp 함수가 호출됨
+2. render 함수를 실행시킨다
+3. render 함수는 Container 컴포넌트를 root에 담아 준다.
+4. countUp은 counter를 증가시키고 다시 render를 호출해줌
+5. render 함수가 호출되면 Container를 root에 담아줌
+6. Container 컴포넌트는 업데이트 된 counter를 가지고 있음
+
+<핵심> 
+- 값을 바꿀때마다, 다시 렌더링
+-->
