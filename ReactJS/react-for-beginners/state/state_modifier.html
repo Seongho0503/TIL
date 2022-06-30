@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    function App() {
+      const [counter, setCounter] = React.useState(0); // default 0
+      const onClick = () => {
+        // counter = counter + 1;
+        //modifier(23232323);
+        //  modifier 함수는 값을 하나 받으면 그 값으로 업데이트하고 리렌더링을 일으킨다.
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      );
+    }
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
+
+<!--
+modifier 함수가 존재하는 이유 : 리렌더링
+- counter를 업데이트하는데 modifier 함수를 쓰려고 함
+- modifier 함수는 값을 하나 받는다.
+modifier 함수는 값을 하나 받으면 그 값으로 업데이트하고 리렌더링을 일으킨다.
+-->
