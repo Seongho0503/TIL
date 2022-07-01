@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Btn({ text, changeValue }) {
+      // 3번!!!!!!!!  중요! prop은 위에 줄 인자로 받는 거고 return안에서 내가 직접 사용해줘야 함
+      // 부모로 부터 받은 prop들을 (return 안) 네가 원하는 곳에 넣어줘야 한다
+      console.log(text, "was rendered");
+      return (
+        <button // Html 안에서 이벤트 리스너
+          onClick={changeValue} // {]} 중괄호 안에 들어가는 것이 함수 인자(prop)이다
+          //onClick={} 여기가 이벤트 리스너다.!! 컴포넌트 (return)안에 html의 속성에 적는것 => 이벤트 리스너!
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0, //테투리 없애기
+            borderRadius: 10, // 둥그렇게
+            fontSize: 16,
+          }}
+        >
+          {text}
+        </button>
+      );
+    }
+    // btn에 onClick을 달아 App 컴포넌트에 있는 뭔가의 state를 바꿀 것이다.
+    // 우리는 Btn의 "text"를 state에 연결할 것이다.
+    // App 컴포넌트 안에 있는 커스톰(Custom) component인 Btn의 onClick은 이벤트 리스너가 아니다!!(매우 중요)
+    // 여기서의 onClick은 위에 있는 Btn으로 들어가는 prop이다.
+    // 여기서의 onClick은 단순히 (우리가 지은) prop의 이름이고(다른이름으로 변경가능)!!!
+    // onClick은 Btn 컴포넌트(함수)의 prop 안으로(인자로) 전달된다.
+    // 커스텀 컴포넌트에 넣는 것은 하나의 prop이다 (이벤트 리스너가 아님)
+    // text와 onClick 모두 porp의 이름이다.
+    // 추가적으로 커스텀 컴포넌트 안에 <Btn style={{color:'blue'}} /> 이거 스타일 절대 적용 안됨
+    // 왜냐면 여기는 prop 이름이다.
+    // (중요) Btn의 prop으로서 넣는다고 해서, 절대 자동적으로 위의 Btn 함수(컴포넌트) return 안에 들어가지 않는다
+    //  위에 3번 보기
+    const MemorizedBtn = React.memo(Btn);
+    // MemorizedBtn은 바로 memorized version의 Btn이 될거다
+    function App() {
+      const [value, setValue] = React.useState("Save Change");
+      const changeValue = () => setValue("Revert Changes");
+      return (
+        <div>
+          <MemorizedBtn text={value} changeValue={changeValue} />
+          <MemorizedBtn text="Continue" />
+        </div>
+      );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
