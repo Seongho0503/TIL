@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function MinutesToHours() {
+      const [amount, setAmount] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+      const onChange = (event) => {
+        setAmount(event.target.value);
+        console.log(event.target.value);
+      };
+      const reset = () => setAmount(0);
+      const onInvert = () => {
+        reset();
+        setInverted((current) => !current);
+      };
+      return (
+        <div>
+          <div>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={inverted ? amount * 60 : amount}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+              disabled={inverted === true}
+            />
+          </div>
+          <div>
+            <label htmlFor="hours">Hours</label>
+            <input
+              value={inverted ? amount : Math.round(amount / 60)}
+              id="hours"
+              placeholder="Hours"
+              type="number"
+              disabled={!inverted}
+              onChange={onChange}
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={onInvert}>{inverted ? "분 전환" : "시 전환"}</button>
+        </div>
+      );
+    }
+
+    function KmToMiles() {
+      return <h3>KM 2 M</h3>;
+    }
+    // 컴포넌트를 고를[선택할] 수 있게
+    // App은 우리가 만들 여러 변환기들을 고를 수 있게
+    // App은 function이면서 component이다.
+    function App() {
+      const [index, setIndex] = React.useState("xx");
+      const onSelect = (event) => {
+        console.log(event.target.value);
+        // 어떤 메뉴를 선택했는지 알 수 있다. => 이 데이터들을 state 안에 넣자
+        setIndex(event.target.value);
+      };
+      // modifier 함수가 실행되면 컴포넌트가 리렌더링되는 시작점-----------
+      // 그래서 밑에 줄에 있는 console.log가 찍힘
+      console.log("render w/", index);
+      // selcet안에 event 리스너
+      return (
+        <div>
+          <h1 className="hi">Super Converter</h1>
+          <select value={index} onChange={onSelect}>
+            <option value="xx">Select your units</option>
+            <option value="0">Minutes & Hours</option>
+            <option value="1">Km & Miles</option>
+          </select>
+          {index === "xx" ? "Please select your units" : null}
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <KmToMiles /> : null}
+        </div>
+        // div 안에 자바스크립트문을 쓸 때는 { }중괄호 안에 쓰기
+        // 해석 : 인덱스가 0이라면 MinutesToHours를 보여주고 아니라면 null 아무것도 보여주지 않는다.
+        // in else를 만들었다 (컴포넌트 안에 JSX를 사용해서)
+        // 1. 지금 하고 있는 건 index의 변화를 리스닝 해주고 있다. (앞으로 자주 할것)
+        // 2. input이 있고 그 안의 값이 바뀌는 것들 => 변화가 일어나면 state가 업데이트 됨
+        // 3. 우리의 컴포넌트가 보이는 것들이 변한다.
+        // 4. <핵심> 내가 state를 변경할 때 마다 새로고침(렌더링) 된다.
+        // component안에 또 다른 컴포넌트 넣기 : 분할 정복(divide and conquer)
+      );
+         // modifier 함수가 실행되면 컴포넌트가 리렌더링되는 끝점-----------
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
