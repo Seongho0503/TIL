@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // SaveBtn, ConfirmBtn을 함수형 컴포넌트라 부름
+    function SaveBtn() {
+      return (
+        // style에서 여러개의 속성을 주고 싶을 떼 ,(쉼표) 꼭 쓰기
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0, //테투리 없애기
+            borderRadius: 10, // 둥그렇게
+          }}
+        >
+          Save Changes
+        </button>
+      );
+    }
+    function ConfirmBtn() {
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0, //테투리 없애기
+            borderRadius: 10, // 둥그렇게
+          }}
+        >
+          Confirm
+        </button>
+      );
+    }
+    function App() {
+      return (
+        <div>
+          <SaveBtn />
+          <ConfirmBtn />
+        </div>
+      );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
