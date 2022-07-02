@@ -1,9 +1,9 @@
 
-<h1 align="center>🐱‍🏍 <b>TIL_ReactJS</b> 🐱‍🏍</h1>
+<h1 >🐱‍🏍 <b>TIL_ReactJS</b> 🐱‍🏍</h1>
 
 <b>개발 기록.</b>
 
-1. TIL 양식
+# 01. TIL 양식
 ## O1. 들어가기
 
 ## 02. 코드 분석
