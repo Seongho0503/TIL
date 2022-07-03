@@ -9,21 +9,7 @@ Today I Learned. 그날 그날 모든 활동들을 정리
 4. Troubleshooting => 기술 블로그
 
 ## ※ TIL 양식 : TIL 폴더에 배운 것을 정리할 때 아래와 같은 양식의 Convention을 지킨다.
-## 🖐 00. 들어가기
-
-## 📌 01. 개념 설명
-
-## 🍳 02. 코드 분석
-```js
-
-```
-## ✍ 03. 전체 코드
-```js
-
-```
-## 📚 04. 학습 정리
-
-## 🤔 05. Commnet 
+(TIL FORM) https://github.com/Seongho0503/TIL/blob/main/TIL_form
 
 ## ※ TIL 부연 설명 
 ```JS
