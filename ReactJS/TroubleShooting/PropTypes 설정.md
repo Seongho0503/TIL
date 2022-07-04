@@ -28,7 +28,7 @@ function Button({ text }) {
   return <button>{text}</button>;
 }
 
-Button.propTypes = {
+Button.propTypes = {  <----------- 해결 완료
   text: PropTypes.string.isRequired,
 };
 export default Button;
