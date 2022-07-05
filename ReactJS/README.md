@@ -3,5 +3,7 @@
 <b>개발 기록.</b>
             </div>
 
+1. 공식문서
+https://ko.reactjs.org/docs/getting-started.html
 
 
