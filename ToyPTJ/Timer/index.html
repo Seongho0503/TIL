@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>D-DAY</title>
+    <script>
+      // 1)전역 변수로 만들어서 모든 함수에서 접근 가능하지만 => 2)지역 변수로 바꿨다.
+      //let dateFormat = null;
+      const dateFormMaker = function () {
+        // 변수 camelCase 작성 -> input 에 작성한 것 (문자열임)
+        const inputYear = document.querySelector("#target-year-input").value;
+        const inputMonth = document.querySelector("#target-month-input").value;
+        const inputDate = document.querySelector("#target-date-input").value;
+
+        // 데이터 form 만들어 주기
+        // ex) "2023-03-03"
+        // 1) 가독성 안 좋음
+        //dateFormat = inputYear + "-" + inputMonth + "-" + inputDate;
+        // 2) 백픽(`) 사용 <= 템플릿 리터럴
+        //`${변수명}` => 바로 문자열로 전환됨
+        const dateFormat = `${inputYear}-${inputMonth}-${inputDate}`;
+        return dateFormat;
+        //console.log(inputYear, inputMonth, inputDate);
+      };
+
+      const counterMaker = function () {
+        const dateFormat = dateFormMaker();
+        console.log(dateFormat);
+        const nowDate = new Date();
+        // 특정 지정한 날
+        //const targetDate = new Date("2023-03-03");
+        // input 창에 입력한 특정 날
+        // "" 로 쓰면 문자열 데이터로 인식되기 때문에 변수로 써야하기 때문에 dateFormat으로 사용
+        // new Date 는 한국 시간 오전 9시를 기준으로 날짜를 표기함 -> (보통 디데이는) 자정으로 바꿔줘야함
+        // .setHours(0, 0, 0, 0) 자정을 기준으로 바꿈
+        const targetDate = new Date(dateFormat).setHours(0, 0, 0, 0);
+        // 먼저 빼고 나서 나눗셈 진행 (밀리세컨드 구별)
+        const remaining = (targetDate - nowDate) / 1000;
+        // 1시간 3600초
+        // 하루 24시간
+        // 남은 일자
+        // Math.floor : 소수점 이하를 내림
+        const remainingDate = Math.floor(remaining / 3600 / 24);
+        // 남은 시간
+        const remainingHours = Math.floor(remaining / 3600) % 24;
+        // 남은 분
+        const remainingMin = Math.floor(remaining / 60) % 60;
+        // 남은 초
+        const remainingSec = Math.floor(remaining) % 60;
+        console.log(remainingDate, remainingHours, remainingMin, remainingSec);
+      };
+    </script>
+  </head>
+  <body>
+    <input id="target-year-input" class="target-input" />
+    <input id="target-month-input" class="target-input" />
+    <input id="target-date-input" class="target-input" />
+    <button onclick="counterMaker()">버튼</button>
+  </body>
+</html>
