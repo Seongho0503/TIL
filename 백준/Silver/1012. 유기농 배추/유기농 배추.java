@@ -7,7 +7,7 @@ public class Main {
 	static int M, N, count, sum;
 	static boolean[][] map;
 	static boolean[][] visited; 
-	static int[] dx = {1, -1, 0, 0};
+	static int[] dx = {1, -1, 0, 0}; // 동 서 남 북
 	static int[] dy = {0, 0 , -1, 1};
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
@@ -30,7 +30,6 @@ public class Main {
 				st = new StringTokenizer(br.readLine());
 				int row = Integer.parseInt(st.nextToken()); // 가로
 				int col = Integer.parseInt(st.nextToken()); // 세로
-				//System.out.println("row : " + row +" col : " + col);
 				map[col][row] = true;
 			}
 			
@@ -57,7 +56,7 @@ public class Main {
 			int nx = x + dx[k];
 			int ny = y + dy[k];
 			if(nx<0 || ny <0 || nx>=M || ny>=N) continue; // 경계값 체크
-			if(!map[ny][nx]) continue;
+			if(!map[ny][nx]) continue; // 갈 수 있는 곳인지 (= 4방에 배추가 있는지)
 			if(visited[ny][nx]) continue; // 방문체크 
 			dfs(ny, nx);
 		}
