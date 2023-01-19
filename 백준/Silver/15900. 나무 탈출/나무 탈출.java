@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 // 그래프와 인접 리스트(adlist)
-public class LinkedList_TEST {
+public class Main {
 	static LinkedList <Integer>[] list;
 	static int answer;
 	public static void main(String[] args) throws IOException {
@@ -47,8 +47,10 @@ public class LinkedList_TEST {
 				dfs(next, cur, cnt+1);
 			}
 		}
+		// 특정 노드가 루트 노드가 아니고, 노드의 인접리스트의 사이즈가 1이면
+		// 그 노드는 리프 노드임.
 		// 2. 인접 리스트는 실제로 연결된 노드들에 대한 정보만 저장하기 때문에, 그래프의 간선의 개수와 리스트 원소의 개수가 같다
-		if(list[cur].size()==1) { //리프 노드라면 깊이 추가
+		if(cur !=1 && list[cur].size()==1) { //리프 노드라면 깊이 추가
 			answer+=cnt;
 		}
 	}
