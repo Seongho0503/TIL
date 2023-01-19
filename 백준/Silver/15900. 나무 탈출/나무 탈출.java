@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 // 그래프와 인접 리스트(adlist)
-public class Main {
+public class LinkedList_TEST {
 	static LinkedList <Integer>[] list;
 	static int answer;
 	public static void main(String[] args) throws IOException {
