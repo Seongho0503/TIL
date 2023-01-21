@@ -8,6 +8,16 @@ Today I Learned. 그날 그날 모든 활동들을 정리
 3. 프로젝트 정리 => 기술 블로그
 4. Troubleshooting => 기술 블로그
 
+
+## 📍 Progress Record
+|  | 월 | 화 | 수 | 목 | 금 | 토 | 일 |
+| :---: | :---: | :---: | :---: | :---: |:---: |:---: |:---: |
+| Week 01</br>(23.01.16 ~ 23.01.22) | ✅ | ✅ | ✅ | ✅ | ✅ | <a href="./백준/Silver/11660. 구간 합 구하기 5">구간 합 구하기5</a>| ✅ |
+| Week 02</br>(22.03.06.) | ✅ | ❌ | ✅ | ✅ |
+
+
+
+
 ## ※ TIL 양식 <br>
 (TIL FORM) https://github.com/Seongho0503/TIL/blob/main/TIL_form다
 ### - TIL 폴더에 배운 것을 정리할 때 (폼을 복붙하여) 아래와 같은 양식의 Convention을 지킨다.
