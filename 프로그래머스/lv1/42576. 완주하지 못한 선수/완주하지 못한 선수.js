@@ -1,8 +1,12 @@
 function solution(participant, completion) {
   // 두 배열을 문자열 정렬을 통해 다른 요소가 등장하면 종료시킨다
   // 문자열 배열 방법을 익혀두자
-  participant.sort((a,b) => a > b ? 1 : -1);
-  completion.sort((a,b) => a > b ? 1 : -1);
+  // 첫 번째 정렬 방법 : sort 함수
+  participant.sort();
+  completion.sort()
+  // 두 번째 정렬 방법 : 오름차순
+  //participant.sort((a,b) => a > b ? 1 : -1);
+  //completion.sort((a,b) => a > b ? 1 : -1);
   console.log(participant) // [ 'eden', 'kiki', 'leo' ]
   console.log(completion) // [ 'eden', 'kiki' ]
   
