@@ -1,43 +1,20 @@
 function solution(participant, completion) {
-    let hashed =  new Map();
-    participant.forEach(a => {
-        //hashed[entry] = hashed[entry] ? hashed[entry] + 1 : 1 
-         hashed.set(a, (hashed.get(a) || 0) + 1);
-    })
-    //console.log(hashed)
-    completion.forEach(a => {
-        //hashed[entry] = hashed[entry] - 1
-        hashed.set(a, (hashed.get(a) || 0) -1 );
-    })
-    //console.log(hashed)
-    // for (var key in hashed) {
-    //     if (hashed[key] >= 1) return key
-    // }
-    // 동일한 결과
-     for (let [key,value] of hashed) {
-        if (value > 0) return key
+    const map = new Map();
+
+    for(let i = 0; i < participant.length; i++) {
+        let a = participant[i], 
+            b = completion[i];
+        console.log(map)
+        map.set(a, (map.get(a) || 0) + 1);
+        map.set(b, (map.get(b) || 0) - 1);
     }
+
+    for(let [k, v] of map) {
+        if(v > 0) return k;
+    }
+
+    return 'nothing';
 }
-
-
-
-// function solution(participant, completion) {
-//     const map = new Map();
-
-//     for(let i = 0; i < participant.length; i++) {
-//         let a = participant[i], 
-//             b = completion[i];
-//         console.log(map)
-//         map.set(a, (map.get(a) || 0) + 1);
-//         map.set(b, (map.get(b) || 0) - 1);
-//     }
-
-//     for(let [k, v] of map) {
-//         if(v > 0) return k;
-//     }
-
-//     return 'nothing';
-// }
 
 
 
