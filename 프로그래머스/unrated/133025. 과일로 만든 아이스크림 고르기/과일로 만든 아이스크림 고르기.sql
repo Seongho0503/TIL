@@ -1,0 +1,13 @@
+SELECT 
+        HALF.FLAVOR
+    FROM 
+        FIRST_HALF AS HALF
+    JOIN
+        ICECREAM_INFO AS INFO
+    ON
+        INFO.FLAVOR = HALF.FLAVOR
+    WHERE
+        HALF.TOTAL_ORDER > 3000 AND INFO.INGREDIENT_TYPE = "fruit_based"
+    ORDER BY
+        HALF.TOTAL_ORDER DESC
+        
