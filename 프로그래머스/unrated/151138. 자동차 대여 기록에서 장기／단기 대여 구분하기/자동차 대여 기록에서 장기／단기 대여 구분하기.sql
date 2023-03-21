@@ -1,0 +1,17 @@
+-- 코드를 입력하세요
+# DATEDIFF : 두 날짜의 차이 계산(-)
+# ※자주하는 실수인데 한달 일수를 구하는데 31일 - 1일을 하면 30일이 된다.
+# IF ~ ELSE  문과도 같은 CASE WHEN 
+
+SELECT  HISTORY_ID 
+        , CAR_ID
+        , DATE_FORMAT(START_DATE, '%Y-%m-%d') AS START_DATE
+        , DATE_FORMAT(END_DATE, '%Y-%m-%d') AS END_DATE
+        , CASE WHEN DATEDIFF(END_DATE,START_DATE) + 1 >= 30 THEN "장기 대여"
+    #WHEN DATEDIFF(END_DATE,START_DATE) + 1 < 30 THEN "단기 대여" END AS RENT_TYPE
+        ELSE "단기 대여" END AS RENT_TYPE
+  FROM  CAR_RENTAL_COMPANY_RENTAL_HISTORY
+# WHERE  START_DATE BETWEEN '2022-09-01' AND '2022-09-30'
+ WHERE DATE_FORMAT(START_DATE, "%Y-%m") = "2022-09"
+ ORDER
+    BY  HISTORY_ID DESC
