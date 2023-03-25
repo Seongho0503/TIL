@@ -19,6 +19,7 @@ function solution(maps) {
           let ny = y + dy[i];
             // (등호주의) 등호를 안 붙여서 방향 이동이 안 되었다.
             if(nx < 0 || ny < 0 || nx >= n || ny >= m || maps[ny][nx] === 0) continue;
+            // if(visited[ny][nx] !== 0) 와 if(visited[ny][nx]) 동일
             if(visited[ny][nx]) continue;
                 queue.push([nx, ny]);
                 visited[ny][nx] = visited[y][x] + 1;
