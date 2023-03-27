@@ -23,20 +23,21 @@
 
 function solution(people, limit){
 	var answer = 0
+    // 내림 차순 정렬
     people.sort((a,b) => b-a)
-    let l = 0
-    let r = people.length-1
+    let str = 0
+    let end = people.length-1
     
-    while(l<r){
-    	var sum = people[l] + people[r]
-        if(sum>limit){
-        	l++
+    while(str < end){
+    	var sum = people[str] + people[end]
+        if(sum > limit){
+        	str++
         } else {
-        	l++
-            r--
+        	str++
+            end--
         }
         answer++
     }
-    if(l == r) answer++
+    if(str === end) answer++
     return answer
 }
