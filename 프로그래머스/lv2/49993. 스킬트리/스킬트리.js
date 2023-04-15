@@ -1,21 +1,13 @@
 function solution(skill, skill_trees) {
-    let count = 0;
-    let str = skill.split("");
+    var answer = 0;
+    let sk = skill.split("");
+    
     for(let i = 0; i < skill_trees.length; i++){
-     let newArr = skill_trees[i].split("").filter(e => str.includes(e)).join("");
-        if(newArr === skill.substring(0, newArr.length)) count++;
+        let magic = skill_trees[i].split("").filter(e => sk.includes(e)).join("");
+        if(magic === skill.substring(0, magic.length)){
+            answer++;
+        }
     }
-    return count; 
+    
+    return answer;
 }
-
-// console.log(skill_trees[i].split(" "))
-// [ 'BACDE' ]
-// [ 'CBADF' ]
-// [ 'AECB' ]
-// [ 'BDA' ]
-
-// console.log(skill_trees[i].split(""))
-// [ 'B', 'A', 'C', 'D', 'E' ]
-// [ 'C', 'B', 'A', 'D', 'F' ]
-// [ 'A', 'E', 'C', 'B' ]
-// [ 'B', 'D', 'A' ]
