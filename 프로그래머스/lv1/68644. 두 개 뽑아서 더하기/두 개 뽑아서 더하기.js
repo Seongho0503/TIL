@@ -1,20 +1,15 @@
 function solution(numbers) {
     const sums = [];
-    const answer = [];
+    // 두 요소의 합
     for(let i = 0; i < numbers.length; i++){
-        for(let j = 0; j < numbers.length; j++){
-           if(i !== j){
+        for(let j = i+1; j < numbers.length; j++){
             sums.push(numbers[i] + numbers[j]); 
-           }
         }
     }
-    
-    sums.forEach((e) => {
-        if(!answer.includes(e)){
-            answer.push(e);
-        }
-    })
-    
+    // 중복 제거
+    const answer = [...new Set(sums)];
+     
+    // 정렬
     answer.sort((a,b) => a-b);
     return answer;
 }
