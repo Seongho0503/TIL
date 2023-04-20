@@ -5,7 +5,7 @@ function solution(n, words) {
     for(let i = 0; i < words.length; i++){
         // 가장 먼저 탈락 하는 사람과 말 순서
         
-         // 배열에서 해당 원소 개수 > 1
+         // 배열에서 해당 원소 개수 > 1 일 때 가장 먼저 중복되는 사람 체크
          if(words.indexOf(words[i]) !== i){
             answer.push(i%n+1, Math.floor(i/n) +1);
              break;
