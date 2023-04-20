@@ -2,7 +2,7 @@ function solution(n, words) {
     var answer = [];
     // 첫 번째 단어의 마지막 알파벳 미리 넣기
     let char = words[0][words[0].length-1];
-    for(let i = 1; i < words.length; i++){
+    for(let i = 0; i < words.length; i++){
         // 가장 먼저 탈락 하는 사람과 말 순서
         
          // 배열에서 해당 원소 개수 > 1 일 때 가장 먼저 중복되는 사람 체크
