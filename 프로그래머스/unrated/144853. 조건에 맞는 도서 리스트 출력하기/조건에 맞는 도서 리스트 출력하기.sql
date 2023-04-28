@@ -1,18 +1,8 @@
-
 SELECT
-        BOOK_ID,
-        DATE_FORMAT(PUBLISHED_DATE, "%Y-%m-%d") AS PUBLISHED_DATE
-    FROM 
-        BOOK
-    WHERE 
-        CATEGORY = "인문"
-    AND
-        DATE_FORMAT(PUBLISHED_DATE, "%Y") = "2021" 
-    ORDER BY
-        PUBLISHED_DATE ASC
-        
-# Y : 2021 , y :21
-# M : October , m : 10
-# D : 24th , d : 24
-        
-        
+    BOOK_ID,
+    DATE_FORMAT(PUBLISHED_DATE, "%Y-%m-%d") PUBLISHED_DATE
+FROM
+    BOOK
+WHERE
+    PUBLISHED_DATE LIKE "2021%" AND CATEGORY = "인문"
+;
