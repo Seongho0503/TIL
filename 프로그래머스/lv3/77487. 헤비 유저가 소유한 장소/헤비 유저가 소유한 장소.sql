@@ -1,18 +1,17 @@
-SELECT
-    ID,
-    NAME,
-    HOST_ID
-FROM
-    PLACES
-WHERE 
-    HOST_ID IN (
-    SELECT HOST_ID
-    FROM PLACES
+WITH HEAVY AS(
+    SELECT
+        HOST_ID
+    FROM
+        PLACES
     GROUP BY
         HOST_ID
     HAVING
-        COUNT(HOST_ID) >= 2 
+        COUNT(*) > 1
 )
-
-ORDER BY
-    ID
+SELECT 
+    *
+FROM
+    PLACES
+WHERE
+    (HOST_ID) IN (SELECT * FROM HEAVY)
+;
