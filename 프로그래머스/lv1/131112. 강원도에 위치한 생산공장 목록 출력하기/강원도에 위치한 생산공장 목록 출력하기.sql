@@ -6,3 +6,4 @@ FROM
     FOOD_FACTORY
 WHERE
     ADDRESS LIKE "강원도%"
+;
