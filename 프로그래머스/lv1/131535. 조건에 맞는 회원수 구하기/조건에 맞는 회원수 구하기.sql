@@ -1,7 +1,7 @@
-SELECT COUNT(*)
-    FROM 
-        USER_INFO
-    WHERE
-       ( AGE >= 20 AND AGE <= 29 )  &&
-       DATE_FORMAT(JOINED , "%Y") = "2021"
-    
+SELECT
+    COUNT(*)
+FROM
+    USER_INFO
+WHERE
+    JOINED LIKE "2021%" AND (AGE >= 20 AND AGE <= 29) 
+;
