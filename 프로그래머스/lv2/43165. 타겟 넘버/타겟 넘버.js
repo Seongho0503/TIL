@@ -2,7 +2,6 @@
 function solution(numbers, target) {
     // function 안에 선언하면 전역변수로 사용가능  
     let count = 0;
-   
     function dfs(sum, index){
          // 피연산자를 다 사용했으면
         if(index === numbers.length ){
