@@ -1,12 +1,16 @@
+// +, - 선택 dfs
 function solution(numbers, target) {
+    // function 안에 선언하면 전역변수로 사용가능  
     let count = 0;
+   
     function dfs(sum, index){
+         // 피연산자를 다 사용했으면
         if(index === numbers.length ){
+        // 총합이 targer 하고 같은지 확인
             if(sum === target){
                  count++;
-                return; 
             }
-              
+            return;   
         }
         let cur = numbers[index];
         
@@ -16,7 +20,6 @@ function solution(numbers, target) {
     dfs(0,0)
     return count;
 }
-
 
 
 
