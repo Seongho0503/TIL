@@ -7,21 +7,22 @@ public class Main {
 		StringBuilder sb = new StringBuilder();
 		
 		String str = br.readLine();
+		char[] ans = str.toCharArray();
 		
 		for(int i = 0; i <str.length(); i++) {
 			
-			int ch = (int)str.charAt(i);
+			int ch = str.charAt(i);
 			
-			//System.out.println(ch);
-			
-			if(ch >= 65 && ch <= 90 ) {
-				sb.append((char)(ch + 32));
+			// 대문자 -> 소문자 시작점 'a'에 + 거리
+			if(ch >= 'A' && ch <= 'Z' ) {
+				// 오답 : 'a' + 'Z' - ch
+				ans[i] = (char)('a' + (ch - 'A'));
 			}else {
-				sb.append((char)(ch - 32));
+				ans[i] = (char)('A' + (ch - 'a'));
 			}
 		}
 		
-		System.out.println(sb);
+		System.out.println(ans);
 		
 	}
 }
