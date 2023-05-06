@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.*;
 
 public class Main {
 	
@@ -9,22 +10,18 @@ public class Main {
 		
 		String str = br.readLine();
 		String word = br.readLine();
+				
+		// replace 방법
+		// aaaaaaaa 8개
+		// aaa 
+		// replace 하고 aa가 남았으면
+		// 3 * 2 = 6
 		
-		int count = 0;
-		int startIndex = 0;
-		
-		while(true) {
-			// 해당 문자열에서 word라는 문자열을 찾고 싶고, 처음부터가 아닌 startIndex부터 찾고 싶어
-			int findIndex = str.indexOf(word, startIndex);
-			
-			// findIndex가 음수라면 찾지 못한거임
-			if(findIndex < 0) break;
-			// 찾으면 계속 진행
-			count++;
-			//start Index 갱신 (내가 찾은 첫 인덱스 + 길이만큼 뒤로 이동)
-			startIndex = findIndex + word.length();
-			
-		}
+		// str.replace(word, "X"); word를 X로 치환
+		// 두 번째 인자 비워두면 삭제하여 반환!!
+		String replaced = str.replace(word, "");
+		int strLen = str.length() - replaced.length();
+		int count = strLen / word.length();
 		
 		System.out.print(count);
 	}
