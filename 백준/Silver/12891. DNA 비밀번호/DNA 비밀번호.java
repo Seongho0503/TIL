@@ -31,7 +31,8 @@ public class Main {
 		int si = 0;
 		int ei = -1;
 		while(ei < str.length -1) {
-			if(++ei < M) {
+			ei++;
+            if(ei < M) {
 				cur.put(str[ei], cur.get(str[ei]) + 1);
 				//System.out.println(cur.entrySet());
 			}else {
