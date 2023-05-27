@@ -1,5 +1,5 @@
 WITH H AS (
-    SELECT
+    SELECT 
         HOST_ID
     FROM
         PLACES
@@ -8,12 +8,13 @@ WITH H AS (
     HAVING
         COUNT(*) > 1
 )
-SELECT 
-    *
+
+SELECT
+    ID,
+    NAME,
+    HOST_ID
 FROM
     PLACES
 WHERE
-    HOST_ID IN (SELECT * FROM H)
-ORDER BY
-    ID
+    (HOST_ID) IN (SELECT * FROM H)
 ;
