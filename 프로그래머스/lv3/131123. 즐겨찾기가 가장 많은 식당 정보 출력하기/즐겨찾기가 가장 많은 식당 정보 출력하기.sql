@@ -7,6 +7,7 @@ WITH F AS (
     GROUP BY
         FOOD_TYPE
 )
+
 SELECT 
     FOOD_TYPE,
     REST_ID,
