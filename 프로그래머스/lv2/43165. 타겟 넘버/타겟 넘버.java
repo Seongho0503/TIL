@@ -14,7 +14,7 @@ class Solution {
         if(index == arr.length){
             if( sum == target){
                 answer++;
-               // return;
+               // return; 여기 있음  안됨
             }
             return;
         }
