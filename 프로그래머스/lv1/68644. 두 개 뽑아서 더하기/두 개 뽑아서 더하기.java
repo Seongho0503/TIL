@@ -9,9 +9,16 @@ class Solution {
                 set.add(numbers[i] + numbers[j]);
             }
         }
+
         ArrayList<Integer> list = new ArrayList<>(set);
         Collections.sort(list);
         
         return list;
     }
 }
+
+/*
+더하기 + : 교환법칙(순열 X)
+서로 다른 인덱스 : 중복 X
+
+*/
