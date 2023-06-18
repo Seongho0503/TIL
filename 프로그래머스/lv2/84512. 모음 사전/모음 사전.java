@@ -1,36 +1,28 @@
 import java.util.*;
 
-class Solution {
-    
-    final char[] WORDS = {'A', 'E', 'I', 'O', 'U'};
-    final int MAX_LENGTH = 5;
-        
-    public int solution(String word) {
-        int answer = 0;
-        
-        List<String> elements = new ArrayList<>();
-        
-        for(int i=0; i<WORDS.length; i++){
-            dfs(elements, String.valueOf(WORDS[i]));
-        }    
-        
-        for(int i=0; i<elements.size(); i++){
-            if(elements.get(i).equals(word)){
-                answer = i + 1;
-                break;
-            }
-        }
-        
+public class Solution {
+
+	static char str[] = {'A', 'E', 'I', 'O', 'U'};
+	static int answer = 0;
+    static int count = 0;
+	public int solution(String word) {
+        dfs("", word);
         return answer;
     }
-    
-    void dfs(List<String> elements, String str){
-        if(str.length() > MAX_LENGTH) return;
+	
+	static void dfs(String cur, String word) {
+        if(cur.equals(word)) {
+            answer = count;
+			return;
+		}
         
-        if(!elements.contains(str)) elements.add(str);
-    
-        for(int i=0; i<WORDS.length; i++){
-            dfs(elements, str+WORDS[i]);
-        }
-    }
+		if(cur.length() >= 5) {
+			return;
+		}
+		
+		for(int i = 0; i < 5; i++) {
+			count++;
+			dfs(cur+str[i], word);
+		}
+  }
 }
