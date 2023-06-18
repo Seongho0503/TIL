@@ -4,3 +4,4 @@ FROM
     ANIMAL_INS
 WHERE
     NAME IS NULL
+;
