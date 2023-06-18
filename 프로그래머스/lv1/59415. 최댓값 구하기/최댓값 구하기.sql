@@ -1,5 +1,5 @@
 SELECT
-    MAX(DATETIME) "시간"
+    MAX(DATETIME)
 FROM
     ANIMAL_INS
 ;
