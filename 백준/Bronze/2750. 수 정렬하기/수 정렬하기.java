@@ -4,23 +4,23 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class Main {
-	
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		
-		// 음수 고려하여 정렬
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine());
-		int[] arr = new int[N];
-		
-		for (int i = 0; i < N; i++) {
-			arr[i] = Integer.parseInt(br.readLine().trim());
-		}
-		
-		Arrays.sort(arr);
-		
-		for (int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]);
-		}
-	}
 
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int N = Integer.parseInt(br.readLine());
+		int[] nums = new int[N];
+		for(int i = 0; i < N; i++) {
+			nums[i] = Integer.parseInt(br.readLine());
+		}
+		
+		Arrays.sort(nums);
+		StringBuilder sb = new StringBuilder();
+		for(int val : nums) {
+			sb.append(val).append("\n");
+		}
+		
+		
+		System.out.print(sb);
+	}
 }
