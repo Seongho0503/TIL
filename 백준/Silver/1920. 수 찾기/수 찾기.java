@@ -1,54 +1,57 @@
-import java.util.*;
+
 import java.io.*;
+import java.util.*;
 
 public class Main {
-	static int [] arr;
+	
+	static int[] origin;
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int N = Integer.parseInt(br.readLine());
+		origin = new int[N]; 
+		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		arr = new int [N];
-		for(int i =0; i < N; i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
+		for(int i = 0; i < N; i++) {
+			origin[i] = Integer.parseInt(st.nextToken());
 		}
+		Arrays.sort(origin);
 		
-		Arrays.sort(arr);
-		
-		int T = Integer.parseInt(br.readLine());
+		StringBuilder sb = new StringBuilder();
+		int result = 0;
+		int K = Integer.parseInt(br.readLine());
 		st = new StringTokenizer(br.readLine());
-		for(int tc = 0; tc < T; tc++) {
-			
+		for(int i = 0; i < K; i++) {
 			int num = Integer.parseInt(st.nextToken());
-			if(binarySearch(num) >= 0) {
-				System.out.println(1);
-			}else {
-				System.out.println(0);
-			}
+			boolean isSearch = search(num);
+			result = isSearch == true ? 1 : 0;
+			sb.append(result).append('\n');
 		}
+		System.out.print(sb);
 	}
 	
-	public static int binarySearch(int key) {
+	public static boolean search(int n) {
+		
 		int start = 0;
-		int end = arr.length -1;
+		int end = origin.length-1;
 		
 		while(start <= end) {
+		
+			int mid = (start + end)/2;
 			
-			int mid = (start+end) / 2;
-			
-			if(key < arr[mid]) {
-				end = mid -1;
-			}
-			else if(key > arr[mid]) {
-				start = mid+1;
-			}
-			else {
-				return mid;
+			if(origin[mid] == n) {
+				return true;
+			}else if (origin[mid] > n) {
+				end = mid - 1;
+			}else {
+				start = mid + 1;
 			}
 		}
+		return false;
 		
-		return -1;
 	}
+//	int start = origin[0];
+//	int end = origin[origin.length-1];
+
 }
