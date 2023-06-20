@@ -7,26 +7,33 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		
-		String[][] arr = new String[N][2];
+		Person[] p = new Person[N];
 		
 		StringTokenizer st;
 		for(int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
-			arr[i][0] = st.nextToken();
-			arr[i][1] = st.nextToken();
+			p[i] = new Person(Integer.parseInt(st.nextToken()),st.nextToken());
 		}
 		
 		// 나이가 같으면 순서를 바꾸지 않음 = 처음 입력 순서
-		Arrays.sort(arr, (e1,e2) -> {
-				int num1 = Integer.parseInt(e1[0]); 
-				int num2 = Integer.parseInt(e2[0]);
-				return num1-num2;			
+		Arrays.sort( p, (e1,e2) -> {
+				return e1.age-e2.age;			
 		});
 		
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < N; i++) {
-			sb.append(arr[i][0]).append(" ").append(arr[i][1]).append('\n');
+			sb.append(p[i].age).append(" ").append(p[i].name).append('\n');
 		}
 		System.out.println(sb);
+	}
+	
+	public static class Person{
+		int age;
+		String name;
+		
+		public Person(int age, String name) {
+			this.age = age;
+			this.name = name;
+		}
 	}
 }
