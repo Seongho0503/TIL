@@ -2,8 +2,8 @@ SELECT
     ANIMAL_ID,
     NAME,
     SEX_UPON_INTAKE
-FROM    
+FROM
     ANIMAL_INS
 WHERE
-    NAME IN ('Lucy' , 'Ella' , 'Pickle' , 'Rogan' , 'Sabrina' , 'Mitty')
+    NAME IN ("Lucy", "Ella", "Pickle", "Rogan", "Sabrina", "Mitty")
 ;
