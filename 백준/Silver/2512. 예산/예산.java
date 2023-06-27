@@ -30,7 +30,7 @@ public class Main {
 	}
 	
 	// upBound : 최대값 찾기
-	public static long search(long[] arr, long key) {
+public static long search(long[] arr, long key) {
 		
 		long start = 0;
 		long end = max;
@@ -47,10 +47,11 @@ public class Main {
 					sub_sum += mid;
 				}
 			}
-			if(key < sub_sum) {
-				end = mid - 1;	
-			}else {
+			// 돈 부족 => 돈 늘려야함 => 최대 값 낮추기
+			if(sub_sum <= key) {
 				start = mid + 1;
+			}else {
+				end = mid - 1;	
 			}
 		}
 		return start;
