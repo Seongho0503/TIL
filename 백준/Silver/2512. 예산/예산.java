@@ -20,15 +20,13 @@ public class Main {
 			sum += arr[i];
 			max = Math.max(max, arr[i]);
 		}
-		
 		long money = Integer.parseInt(br.readLine());
 		
 		if(sum <= money) {
 			System.out.println(max);
 		}else {
 			System.out.println(search(arr, money) -1);
-		}
-		
+		}	
 	}
 	
 	// upBound : 최대값 찾기
@@ -37,7 +35,7 @@ public class Main {
 		long start = 0;
 		long end = max;
 		
-		while(start < end) {
+		while(start <= end) {
 			
 			long mid = (start + end) /2;
 			long sub_sum = 0;
@@ -50,13 +48,11 @@ public class Main {
 				}
 			}
 			if(key < sub_sum) {
-				end = mid;	
+				end = mid - 1;	
 			}else {
 				start = mid + 1;
 			}
-			
 		}
 		return start;
 	}
-
 }
