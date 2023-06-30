@@ -3,42 +3,42 @@ import java.util.*;
 
 public class Main {
 	
-	static long[] arr;
-	static long N;
+	static int[] arr;
+	static int N;
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		N = Long.parseLong(st.nextToken());
+		N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		
-		arr = new long[M];
-		long max = 0;
+		arr = new int[M];
+		int max = 0;
 		for(int i = 0; i < M; i++) {
-			arr[i] = Long.parseLong(br.readLine());
+			arr[i] = Integer.parseInt(br.readLine());
 			max = Math.max(arr[i], max);
 		}
 		
-		long answer = search(max);
+		int answer = search(max);
 		
 		System.out.print(answer);
 	}
 	
-	public static long search(long right) {
+	public static int search(int right) {
 		
-		long start = 1;
-		long end = right;
+		int start = 1;
+		int end = right;
 		
 		// Lower_Bound
 		while(start <= end) {
 			
-			long mid = (start + end ) /2;
-			long count = 0;
+			int mid = (start + end ) /2;
+			int count = 0;
 			
 			// 보석 개수 찾기
-			for(long val : arr) {
-				long cur = val;
+			for(int val : arr) {
+				int cur = val;
 				count += (cur / mid);
 				
 				// 모든 보석을 나눠주기 위해서
