@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Main {
 	static boolean[] visited;
-	static ArrayList<ArrayList<Integer>> list;
+	static ArrayList<ArrayList<Integer>> list = new ArrayList<>();
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -11,7 +11,9 @@ public class Main {
 		int T = Integer.parseInt(st.nextToken()); // 간선의 개수
 		int count = 0;
 		//ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-		list = new ArrayList<>();
+		//list = new ArrayList<>();
+		
+		
 		// 정점이 1부터 시작해서 0번 인덱스 비어줌 (계산 편하게 하기 위해서)
 		visited = new boolean[N+1];
 		// 각 노드별 리스트를 만들어 줌
