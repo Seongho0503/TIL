@@ -10,7 +10,7 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
 		int N = Integer.parseInt(st.nextToken());
-		long target = Integer.parseInt(st.nextToken());
+		int target = Integer.parseInt(st.nextToken());
 		
 		st =  new StringTokenizer(br.readLine());
 		
@@ -24,8 +24,8 @@ public class Main {
 		
 		int start = 0;
 		int end = N-1;
-		long sum = 0;
-		long ans = 0;
+		int sum = 0;
+		int ans = 0;
 		
 		while(end > start ) {
 			
@@ -38,8 +38,7 @@ public class Main {
 			}else {
 				end--;
 			}
-		}
-		
+		}	
 		System.out.print(ans);
 	}
 }
