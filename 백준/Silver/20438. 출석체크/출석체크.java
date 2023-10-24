@@ -6,7 +6,7 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
 		st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken()); // 
 		int K = Integer.parseInt(st.nextToken());
 		int Q = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
@@ -31,7 +31,7 @@ public class Main {
 				for (int j = now; j < N + 3; j++) {
 					// 학생의 배수 체크
 					if (j % now == 0) {
-						// 전파한 학생이 자는 학생이 아니라면 체크
+						// 전파한 학생(배수)이 자는 학생이 아니라면 체크
 						if (!SleepStudent.contains(j)) {
 							v[j] = true;
 						}
@@ -39,10 +39,14 @@ public class Main {
 				}
 			}
 		}
-
+		
+		// 구간합 구하기
 		int[] cumSum = new int[N + 3];
+		// 구간은 3부터 시작(번호를 3부터 받음)
 		for (int i = 3; i < cumSum.length; i++) {
 			// 이전 값들  + 현재 인덱스(학생) 출석 여부
+			// 각 구간에 대해서 출석이 되지 않은 학생들의 수
+			// 출석 안 했으면 1, 출석 했으면  0 
 			cumSum[i] = cumSum[i - 1] + ((!v[i]) ? 1 : 0);
 		}
 		for (int i = 0; i < M; i++) {
