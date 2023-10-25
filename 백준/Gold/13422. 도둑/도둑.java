@@ -6,19 +6,19 @@ public class Main {
     public static void main(String[] args) throws IOException {
         
         //입력
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
  
-        int t = Integer.parseInt(bf.readLine());
+        int t = Integer.parseInt(br.readLine());
         for(int i = 0; i < t; i++) {
-            String str = bf.readLine();
-            StringTokenizer st = new StringTokenizer(str);
+  
+            StringTokenizer st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
             int m = Integer.parseInt(st.nextToken());
             int k = Integer.parseInt(st.nextToken());
  
             int[] home = new int[n];
-            str = bf.readLine();
-            st = new StringTokenizer(str);
+           
+            st = new StringTokenizer(br.readLine());
             int total = 0;
             for(int j = 0; j < n; j++) {
                 home[j] = Integer.parseInt(st.nextToken());
