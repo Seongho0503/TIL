@@ -5,61 +5,53 @@ import java.util.*;
 
 public class Main {
 	
+	static class Print{
+		
+		int index, val;
+		
+		public Print(int index, int val){
+			this.index = index;
+			this.val = val;
+		}
+	}
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
 		StringBuilder sb = new StringBuilder();
 		
-		int tc = Integer.parseInt(br.readLine());
-		
-		for(int t = 0; t < tc; t++) {
-			
+		for(int tc = 0; tc < T; tc++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			
-			
-			int n = Integer.parseInt(st.nextToken());
+			int N = Integer.parseInt(st.nextToken());
 			int target = Integer.parseInt(st.nextToken());
 			
-			LinkedList<int[]> que = new LinkedList<>();
+			LinkedList<Print> list = new LinkedList<>(); 
+			PriorityQueue<Integer> que = new PriorityQueue<>(Collections.reverseOrder());
 			st = new StringTokenizer(br.readLine());
 			
-			for(int i = 0; i < n; i++) {
-				que.add(new int[] {i, Integer.parseInt(st.nextToken())}); // {원래 위치, 중요도}
+			for(int i = 0; i < N; i++) {
+				int num = Integer.parseInt(st.nextToken());
+				list.add(new Print(i, num));
+				que.add(num);
 			}
-		  
-		  int count = 0;
-		  while(!que.isEmpty()) {
-			
-			boolean isMax = true;
-			int[] front = que.poll();
-			  
-			for(int i = 0; i < que.size(); i++) {
-					
-				if(front[1] < que.get(i)[1]) {
-				// 맨 앞 프린트보다 중요도가 더 높은 프린터가 있을 때
-					que.offer(front);
-					for(int j = 0; j < i; j++) {
-						que.offer(que.poll());
-					}
-					
-					isMax = false;
-					break;
-				}	
-			}
-			// front 원소가 가장 큰 원소가 아니였으므로 다음 반복문으로 넘어감
-			if(isMax == false) {
-				continue;
-			}
-			
-			count++;
-			if(front[0] == target) {
-				break;
-			}
-		  }// while 종료
-		  
-		  sb.append(count).append('\n');
-		  
-		}//tc 종료
+			int count = 0;
+			while(true) {
+				
+				Print p = list.poll();
+				
+				if(p.val == que.peek()) {
+					que.poll();
+					count++;
+					if(p.index == target) {
+						sb.append(count).append('\n');
+						break;
+					}				
+				}else {
+					list.add(p);
+				}
+			}// while 종료	
+		}
 		System.out.println(sb);
 	}
 
