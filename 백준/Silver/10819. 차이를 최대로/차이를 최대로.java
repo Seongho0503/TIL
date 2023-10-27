@@ -1,54 +1,48 @@
 //package BOJ_10819_차이를최대로;
 
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class Main {
-	
-	static int[] arr;
-	static int[] ans;
-	static int n;
-	static int result;
-	static boolean[] visit;
-	
-	public static void main(String[] args) throws IOException {
+	static boolean[] visited;
+	static int[] num;
+	static int max = Integer.MIN_VALUE;
+	static int N;
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		N = Integer.parseInt(br.readLine());
 		
-		n = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		arr = new int[n];
-		ans = new int[n];
-		visit = new boolean[n];
-		
-		for(int i = 0; i < n; i++) {
+		num = new int[N];
+		visited = new boolean[N];
+		int[] arr = new int[N];
+		for(int i = 0; i < N; i++)
 			arr[i] = Integer.parseInt(st.nextToken());
-		}
 		
-		dfs(0);
-		System.out.println(result);	
+		dfs(0, arr);
+		
+		System.out.println(max);
 	}
 	
-	public static void dfs(int cnt) {
-			
-		if(cnt == n) {
+	static void dfs(int depth, int[] arr) {
+		
+		// 종료 시점
+		if(depth == N) {
 			int sum = 0;
-			for(int i = 0; i < n-1; i++) {
-				sum += Math.abs(ans[i] - ans[i+1]);
+			for(int i = 0; i < N-1; i++) {
+				sum += Math.abs(num[i]-num[i+1]);
 			}
-			result = Math.max(result, sum);
-			return;
+			max = Math.max(sum, max);
 		}
 		
-		for(int i = 0; i < n; i++) {
-			if(!visit[i]) {
-				ans[cnt] = arr[i];
-				visit[i] = true;
-				dfs(cnt + 1);
-				visit[i] = false;
+		for(int i = 0; i < N; i++) {
+			if(!visited[i]) {
+				visited[i] = true;
+				num[depth] = arr[i];
+				dfs(depth+1, arr);
+				visited[i] = false;
 			}
 		}
 	}
-
 }
