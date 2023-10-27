@@ -16,9 +16,9 @@ public class Main {
 		@Override
 		public int compareTo(Pair o) {
 			if (this.up == o.up) {
-				return this.day - o.day;
+				return this.day - o.day; // 오름차순
 			}
-			return this.up - o.up;
+			return this.up - o.up; // 오름차순
 		}
 	}
 
