@@ -34,7 +34,7 @@ public class Main {
 		
 		for(int i = 1; i < N; i++) {
 			
-			if(classes[i][0] >= pq.peek() && !pq.isEmpty()) {
+			if(!pq.isEmpty() && classes[i][0] >= pq.peek()) {
 				pq.poll();
 			}
 			pq.add(classes[i][1]);
