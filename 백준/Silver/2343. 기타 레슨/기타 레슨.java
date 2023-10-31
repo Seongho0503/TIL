@@ -1,3 +1,4 @@
+//package BOJ_2343_실1_기타레슨;
 
 import java.io.*;
 import java.util.*;
@@ -37,9 +38,8 @@ public class Main {
 			// 블루레이 크기
 			int mid = (start + end ) / 2;
 			
-			int count = 1;
+			int count = 1; // 시작
 			long sum = 0;
-			
 			
 			for(int val : arr) {
 				if(sum + val > mid) {
@@ -50,10 +50,10 @@ public class Main {
 			}
 			
 			// count <= M (X)
-			if(count > M ) {
-				start = mid + 1;	
+			if(count <= M ) {
+				end = mid - 1;	
 			}else {
-				end = mid - 1;
+				start = mid + 1;	
 			}	
 		}
 		
