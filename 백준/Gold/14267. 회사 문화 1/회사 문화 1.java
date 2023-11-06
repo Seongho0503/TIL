@@ -41,13 +41,8 @@ public class Main {
 		
 		//System.out.println(Arrays.toString(dp)); 디버깅
 		
-		for(int i = 1; i <= N; i++) {
-			if(parrent[i] == 1) {
-				dfs(i, dp[i]);
-			}
-		}
+		dfs(1);
 		
-	
 		StringBuilder sb = new StringBuilder();
 		for(int i = 1; i <= N; i++) {
 			sb.append(dp[i] + " ");
@@ -55,11 +50,12 @@ public class Main {
 		System.out.println(sb);
 	}
 	
-	static void dfs(int person, int value) {
+	static void dfs(int person) {
 		
 		for(int next : tree[person]) {
 			dp[next] += dp[person];
-			dfs(next, value);
+			dfs(next);
 		}
+		
 	}
 }
