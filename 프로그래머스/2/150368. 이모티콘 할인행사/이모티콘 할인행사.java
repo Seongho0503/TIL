@@ -2,13 +2,15 @@ class Solution {
     static int[] discount = {10,20,30,40};
     static int maxOfSubscribe;
     static int maxOfCost;
+    static int len;
     public int[] solution(int[][] users, int[] emoticons) {
-        findResult(0, emoticons.length, new int[emoticons.length], users,emoticons);
+        len = emoticons.length;
+        findResult(0, new int[emoticons.length], users, emoticons);
         return new int[]{maxOfSubscribe,maxOfCost};
     }
 
-    public void findResult(int index,int emoticonsLength, int[] discounts,int[][] users, int[] emoticons){
-        if (index == emoticonsLength){
+    public void findResult(int depth, int[] discounts,int[][] users, int[] emoticons){
+        if (depth == len){
             int subscribe = 0;
             int cost = 0;
 
@@ -37,8 +39,8 @@ class Solution {
         
         
         for (int i = 0; i < 4; i++){
-            discounts[index] = discount[i];
-            findResult(index+1,emoticonsLength,discounts,users,emoticons);
+            discounts[depth] = discount[i];
+            findResult(depth + 1, discounts, users, emoticons);
         }
     }
 }
