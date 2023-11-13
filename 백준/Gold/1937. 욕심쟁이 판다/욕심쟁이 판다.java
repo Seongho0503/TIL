@@ -29,7 +29,9 @@ public class Main {
 		
 		for(int i = 0; i < N; i++) {
 			for(int j = 0; j < N; j++) {
-				max = Math.max(max, dfs(i,j));
+				if(dp[i][j] == 0){
+                    max = Math.max(max, dfs(i,j));
+                }
 			}
 		}
 		
